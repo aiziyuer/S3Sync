@@ -10,7 +10,7 @@
 		<Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
 			<PatternLayout pattern="${LOG_PATTERN}" />
 		</Console>
-		<RollingFile name="DebugFileAppender" fileName="/var/log/s3sync/info.log"
+		<RollingFile name="InfoFileAppender" fileName="/var/log/s3sync/info.log"
 			filePattern="/var/log/s3sync/info-%d{yyyy-MM-dd}-%i.log">
 			<PatternLayout>
 				<Pattern>${LOG_PATTERN}</Pattern>
@@ -26,12 +26,13 @@
 		<AsyncLogger name="com.aiziyuer.app" level="debug"
 			additivity="false">
 			<AppenderRef ref="ConsoleAppender" />
-			<AppenderRef ref="FileAppender" />
+			<AppenderRef ref="InfoFileAppender" />
 		</AsyncLogger>
 
 		<Root level="info">
 			<AppenderRef ref="ConsoleAppender" />
-			<AppenderRef ref="DebugFileAppender" />
+			<AppenderRef ref="InfoFileAppender" />
 		</Root>
+
 	</Loggers>
 </Configuration>
