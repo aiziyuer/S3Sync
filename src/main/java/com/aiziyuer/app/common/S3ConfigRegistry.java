@@ -3,10 +3,10 @@ package com.aiziyuer.app.common;
 import java.io.InputStream;
 import java.util.Map;
 
+import org.apache.logging.log4j.util.Strings;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
-import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 
 public class S3ConfigRegistry {
@@ -18,7 +18,7 @@ public class S3ConfigRegistry {
 		String configFile = "s3cfg/config.yml";
 
 		String activeProfile = System.getenv("spring.profiles.active");
-		if (Strings.isNullOrEmpty(activeProfile))
+		if (Strings.isNotBlank(activeProfile))
 			configFile = String.format("s3cfg/config-%s.yml", activeProfile);
 
 		InputStream inputStream = S3ConfigRegistry.class.getClassLoader()//

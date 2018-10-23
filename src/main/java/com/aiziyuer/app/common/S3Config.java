@@ -16,5 +16,8 @@ public class S3Config {
 
 	/** 访问入口 */
 	private String endpoint;
+	
+	/** 代理地址 */
+	private String proxy;
 
 }
