@@ -16,7 +16,8 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class DemoCaseTest {
-
+	
+	
 	public AmazonS3Client getClient() {
 
 		ClientConfiguration opts = new ClientConfiguration();
@@ -35,6 +36,7 @@ public class DemoCaseTest {
 	}
 
 	@Test
+	@Ignore
 	public void testList() {
 
 		log.info("testList ... ");
@@ -65,7 +67,7 @@ public class DemoCaseTest {
 		} while (objects.isTruncated());
 
 	}
-
+	
 	@Test
 	@Ignore
 	public void testUpload() {
@@ -73,5 +75,7 @@ public class DemoCaseTest {
 		log.info("");
 
 	}
+	
+	
 
 }
